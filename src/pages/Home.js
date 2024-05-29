@@ -14,7 +14,7 @@ const Home = () => {
         <div className='w-full pt-36 pb-14 lg:pt-0 lg:pb-0
         lg:w-auto z-10 lg:absolute flex flex-col justify-center items-center leg:items-start'>
           <h1 className='h1'>
-            creative <br /> designer
+            designer <br /> & developer
           </h1>
           <p className='text-[26px lg:text-[36px]
           font-primary mb-4 lg:mb-12'>
