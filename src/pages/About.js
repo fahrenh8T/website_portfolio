@@ -3,10 +3,20 @@ import React from 'react';
 import PersonImg from '../img/about/person.png';
 // import link
 import { Link } from 'react-router-dom';
+// import motion
+import { motion } from 'framer-motion';
+//import transition
+import { transition1 } from '../transitions';
 
 const About = () => {
   return (
-    <section className='section'>
+    <motion.section 
+      initial={{ opacity: 0 }}
+      animate={{ opacity: 1 }}
+      exit={{ opacity: 0 }}
+      transition={transition1}
+      className='section'
+    >
       <div className="container mx-auto h-full relative">
         {/* text & img wrapper */}
         <div className='flex flex-col lg:flex-row h-full items-center
@@ -38,7 +48,7 @@ const About = () => {
           </div>
         </div>
       </div>
-      </section>
+      </motion.section>
   );
   };
 

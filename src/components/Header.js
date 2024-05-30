@@ -14,7 +14,7 @@ const Header = () => {
       <div className='flex flex-col lg:flex-row lg:items-center w-full justify-between'>
         {/* logo */}
         <Link to={'/'} className='max-w-[200px]'>
-          <img src={Logo} alt='' />
+          <img src={ Logo } alt='' />
         </Link>
         {/* nav - initially hiddem - show on desktop mode */}
           <nav className='hidden xl:flex gap-x-12 font-semibold'>
