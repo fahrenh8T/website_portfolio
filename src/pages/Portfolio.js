@@ -1,4 +1,4 @@
-import React from 'react';
+import React, {useContext} from 'react';
 // import images
 import Image1 from '../img/portfolio/1.png';
 import Image2 from '../img/portfolio/2.png';
@@ -8,38 +8,58 @@ import Image5 from '../img/portfolio/5.png';
 import Image6 from '../img/portfolio/6.png';
 // import link
 import { Link } from 'react-router-dom';
+// import motion
+import { motion } from 'framer-motion';
+// import transition
+import { transition1 } from '../transitions';
+// import cursor context
+import { CursorContext } from '../context/CursorContext';
 
 const Portfolio = () => {
+  const {mouseEnterHandler, mouseLeaveHandler} = useContext(CursorContext);
+
   return (
-    <section className='section'>
+    <motion.section 
+      initial={{ opacity: 0, y: '100%' }}
+      animate={{ opacity: 1, y: 0 }}
+      exit={{ opacity: 0, y: '100%' }}
+      transition={transition1}
+      className='section'>
       <div className='container mx-auto h-full relative'> 
         <div className='flex flex-col lg:flex-row h-full items-center justify-start
         gap-x-24 text-center lg:text-left pt-24 lg:pt-36 pb-8'>
           {/* text */}
-          <div className='flex flex-col lg:items-start'>
+          <motion.div   
+          onMouseEnter={mouseEnterHandler}
+          onMouseLeave={mouseLeaveHandler}
+          initial={{ opacity: 0, y: '-80%' }}
+          animate={{ opacity: 1, y: 0 }}
+          exit={{ opacity: 0, y: '-80%' }}
+          transition={transition1}
+          className='flex flex-col lg:items-start'>
             <h1 className='h1'>Portfolio</h1>
             <p className='mb-12 max-w-sm'>
-              Every day, I strive to master new skills in
-              <b> Illustrator, Photoshop, and UI/UX design. </b> 
-              I embrace this journey, 
-              finding joy in leveling up and 
-              pushing my creative boundaries.
-              <br />
-              <br />
-              Every day, I strive to master new skills in Illustrator, 
-              Photoshop, and UI/UX design. I embrace this journey, 
-              finding joy in leveling up and 
-              pushing my creative boundaries.
+              I've had the pleasure of working on a variety of projects 
+              in graphic design and am now expanding my expertise into 
+              web design. My portfolio includes designing logos for companies 
+              such as Brain Brush, The Allure Spa, EDSOL, Dawn Curtains, and 
+              Everest Tech Hub. Each project has allowed me to blend creativity with 
+              strategic thinking, crafting visual identities that resonate with their 
+              audiences.
             </p>
             <Link to={'/contact'} className='btn mb-[30px] mx-auto 
             lg:mx-0'>
               Hire me
             </Link>
-          </div>
+          </motion.div>
           {/* image grid */}
-          <div className='grid grid-cols-2 lg:gap-2'>
+          <div
+          onMouseEnter={mouseEnterHandler}
+          onMouseLeave={mouseLeaveHandler}
+          className='grid grid-cols-2 lg:gap-2'>
             {/* images */}
-            <div className='max-w-[250px] lg:max-w-[320px] h-[187px] 
+            <div
+            className='max-w-[250px] lg:max-w-[320px] h-[187px] 
             lg:h-[220px] bg-accent overflow-hidden'>
               <img className='object-cover h-full lg:h-[220px] hover:scale-110 transition-all duration-500' 
               src={Image1} alt=''/>
@@ -72,7 +92,7 @@ const Portfolio = () => {
           </div>
         </div>
       </div>
-    </section>
+    </motion.section>
   )
 };
 
